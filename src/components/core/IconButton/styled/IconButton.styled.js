@@ -81,6 +81,9 @@ const variants = {
                 box-shadow: none;
                 pointer-events: none;
                 cursor: default;
+                & > svg {
+                    fill: ${theme.white}
+                }
             }
             &:hover {
                 background-color: ${patternBackgroundOpacity(mainColor)};

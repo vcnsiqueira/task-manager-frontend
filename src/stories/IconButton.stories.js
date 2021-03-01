@@ -1,8 +1,9 @@
 import React from 'react';
 
 import IconButton from '../components/core/IconButton';
-import { Warning } from '../components/icons';
+import { Users } from '../components/icons';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     title: 'Components/Button/IconButton',
     component: IconButton,
@@ -39,18 +40,18 @@ Base.args = {
     variant: "pattern",
     shape: "circle",
     size: "medium",
-    children: <Warning />,
+    children: <Users />,
 };
 
 export const Contained = () => (
     <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <IconButton color="primary" variant="contained" style={{marginRight: "35px"}}><Warning /></IconButton>
-        <IconButton color="secondary" variant="contained" style={{marginRight: "35px"}}><Warning /></IconButton>
-        <IconButton color="danger" variant="contained" style={{marginRight: "35px"}}><Warning /></IconButton>
-        <IconButton color="success" variant="contained" style={{marginRight: "35px"}}><Warning /></IconButton>
-        <IconButton color="warning" variant="contained" style={{marginRight: "35px"}}><Warning /></IconButton>
-        <IconButton color="info" variant="contained" style={{marginRight: "35px"}}><Warning /></IconButton>
-        <IconButton color="dark" variant="contained" style={{marginRight: "35px"}}><Warning /></IconButton>
+        <IconButton color="primary" variant="contained" style={{marginRight: "35px"}}><Users /></IconButton>
+        <IconButton color="secondary" variant="contained" style={{marginRight: "35px"}}><Users /></IconButton>
+        <IconButton color="danger" variant="contained" style={{marginRight: "35px"}}><Users /></IconButton>
+        <IconButton color="success" variant="contained" style={{marginRight: "35px"}}><Users /></IconButton>
+        <IconButton color="warning" variant="contained" style={{marginRight: "35px"}}><Users /></IconButton>
+        <IconButton color="info" variant="contained" style={{marginRight: "35px"}}><Users /></IconButton>
+        <IconButton color="dark" variant="contained" style={{marginRight: "35px"}}><Users /></IconButton>
     </div>
 );
 Contained.parameters = {
@@ -63,13 +64,13 @@ Contained.parameters = {
 
 export const Outlined = () => (
     <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <IconButton color="primary" variant="outlined" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="secondary" variant="outlined" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="danger" variant="outlined" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="success" variant="outlined" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="warning" variant="outlined" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="info" variant="outlined" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="dark" variant="outlined" style={{marginRight: '35px' }}><Warning /></IconButton>
+        <IconButton color="primary" variant="outlined" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="secondary" variant="outlined" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="danger" variant="outlined" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="success" variant="outlined" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="warning" variant="outlined" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="info" variant="outlined" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="dark" variant="outlined" style={{marginRight: '35px' }}><Users /></IconButton>
     </div>
 );
 Outlined.parameters = {
@@ -82,13 +83,13 @@ Outlined.parameters = {
 
 export const Pattern = () => (
     <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <IconButton color="primary" variant="pattern" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="secondary" variant="pattern" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="danger" variant="pattern" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="success" variant="pattern" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="warning" variant="pattern" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="info" variant="pattern" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="dark" variant="pattern" style={{marginRight: '35px' }}><Warning /></IconButton>
+        <IconButton color="primary" variant="pattern" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="secondary" variant="pattern" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="danger" variant="pattern" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="success" variant="pattern" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="warning" variant="pattern" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="info" variant="pattern" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="dark" variant="pattern" style={{marginRight: '35px' }}><Users /></IconButton>
     </div>
 );
 Pattern.parameters = {
@@ -101,9 +102,9 @@ Pattern.parameters = {
 
 export const Shapes = () => (
     <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <IconButton color="primary" variant="contained" shape="square" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="secondary" variant="contained" shape="rounded" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="danger" variant="contained" shape="circle" style={{marginRight: '35px' }}><Warning /></IconButton>
+        <IconButton color="primary" variant="contained" shape="square" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="secondary" variant="contained" shape="rounded" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="danger" variant="contained" shape="circle" style={{marginRight: '35px' }}><Users /></IconButton>
     </div>
 );
 Shapes.parameters = {
@@ -116,10 +117,10 @@ Shapes.parameters = {
 
 export const Sizes = () => (
     <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <IconButton color="primary" variant="contained" size="small" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="secondary" variant="contained" size="medium" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="danger" variant="contained" size="large" style={{marginRight: '35px' }}><Warning /></IconButton>
-        <IconButton color="success" variant="contained" size="extralarge" style={{marginRight: '35px' }}><Warning /></IconButton>
+        <IconButton color="primary" variant="contained" size="small" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="secondary" variant="contained" size="medium" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="danger" variant="contained" size="large" style={{marginRight: '35px' }}><Users /></IconButton>
+        <IconButton color="success" variant="contained" size="extralarge" style={{marginRight: '35px' }}><Users /></IconButton>
     </div>
 );
 Sizes.parameters = {
