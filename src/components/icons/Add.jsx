@@ -1,8 +1,14 @@
 import React from 'react';
 
-const Add = () => {
+const Add = ({ color, width, height }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      fill={color}
+      width={width} 
+      height={height}
+    >
       <path d="M0 0h24v24H0z" fill="none" />
       <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
     </svg>

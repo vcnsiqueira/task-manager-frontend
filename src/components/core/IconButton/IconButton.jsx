@@ -25,7 +25,7 @@ IconButton.propTypes = {
     */
     color: PropTypes.oneOfType(['primary', 'secondary', 'succes', 'danger', 'warning', 'info', 'dark', PropTypes.string]),
     /**
-    * Variant of the icon button. Choose among contained, outlined or pattern
+    * Variant of the icon button. Choose among contained, outlined, pattern
     */
     variant: PropTypes.oneOf(['contained', 'outlined', 'pattern']),
     /**

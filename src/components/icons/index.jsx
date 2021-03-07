@@ -6,3 +6,5 @@ export { default as Error } from './Error';
 export { default as Settings } from './Settings';
 export { default as Users } from './Users';
 export { default as Warning } from './Warning';
+export { default as StarContained } from './StarContained';
+export { default as StarOutlined } from './StarOutlined';

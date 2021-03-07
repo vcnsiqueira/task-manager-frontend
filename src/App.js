@@ -1,18 +1,14 @@
+import React from 'react';
 import './App.css';
 
-import { Add, Admin, Check, Close, Error, Settings, Users, Warning }  from './components/icons';
-import IconButton from './components/core/IconButton';
-import Button from './components/core/Button';
+import theme from './styles/theme';
+
+import BoardCard from './components/BoardCard';
 
 function App() {
   return (
     <>
-      <IconButton color="primary" variant="contained" disabled>
-        <Check />
-      </IconButton>
-      <Button variant="outlined" >
-        <Warning /> Button
-      </Button>
+      <BoardCard bookmark={true} color={theme.primary} title="Título" date="22/02/21" numberOfTasks={25}></BoardCard>
     </>
   );
 }

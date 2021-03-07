@@ -1,6 +1,6 @@
 const theme = {
     primary: '#28527A',
-    secondary: '#F4D160',
+    secondary: '#EF8D32',
     success: '#4CAF50',
     danger: '#BA000D',
     warning: '#FFd54F',
