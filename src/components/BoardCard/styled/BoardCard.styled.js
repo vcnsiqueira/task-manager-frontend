@@ -18,7 +18,7 @@ export const StyledBoardCard = styled.div`
     display: block;
     background-color: ${props => getColor(props.color) + '80'};
     border-radius: 10px;
-    width:  300px;
+    width:  250px;
     font-weight: bold;
 
     &:hover {

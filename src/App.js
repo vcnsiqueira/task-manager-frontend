@@ -1,15 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
+//import theme from './styles/theme';
 
-import theme from './styles/theme';
+import Login from './views/Login/Login';
+import Boards from './views/Boards/Boards';
 
-import BoardCard from './components/BoardCard';
-
-function App() {
+const App = () => {
   return (
-    <>
-      <BoardCard bookmark={true} color={theme.primary} title="Título" date="22/02/21" numberOfTasks={25}></BoardCard>
-    </>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Login />
+        </Route>
+        <Route path="/u1/boards" exact>
+          <Boards />
+        </Route>
+        <Redirect to="/"/>
+      </Switch>
+    </Router>
   );
 }
 
