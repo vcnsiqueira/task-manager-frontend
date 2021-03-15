@@ -10,7 +10,9 @@ const theme = {
     black: '#000000',
     lightgrey: '#F5F5F5',
     grey: '#CCCCCC',
-    disabled: '#D2D2D2'
+    disabled: '#D2D2D2',
+    inputTextBorder: '#757575',
+    inputLabelColor: '#696969',
 };
 
 export default theme;
