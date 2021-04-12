@@ -1,60 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { FullContainer, FormContainer, FormHeader, FormContent, Line } from './styled/Login.styled';
+
+import { AuthContext } from '../../context/auth-context';
 
 import InputText from '../../components/core/InputText';
 import Button from '../../components/core/Button';
 
+import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH, VALIDATOR_EMAIL, VALIDATOR_SAMEVALUE } from '../../utils/validation';
+
 const Login = () => {
 
-    const [isLoginMode, setIsLoginMode] = useState(false);
-    const [state, setState] = useState({
-        name:'',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    });
-    const [inputError, setInputError] = useState({
-        name: false,
-        email: false,
-        password: false,
-        confirmPassword: false,
-    });
-    const [errorMessages, setErrorMessages] = useState({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    });
+    const [isLoginMode, setIsLoginMode] = useState(true);
+    const [passwordValue, setPasswordValue] = useState(''); // This state is used to validate the user password
 
-    const inputHandler = event => { // this function handles the changes in every input of the form
-        const value = event.target.value;
-        setState({
-            ...state,
-            [event.target.name]: value,
-        });
+    const auth = useContext(AuthContext);
+
+    const toggleLoginMode = () => {
+        setIsLoginMode(prev => !prev);
     };
 
+    const submitForm = event => {
+        event.preventDefault();
+        console.log("Submit"); // I have to put the logic of submission here
+        auth.login();
+    }
+
     return ( 
-        <> 
-            <div>
-                <h2>{isLoginMode ? 'Login' : 'Registrar'}</h2>
-                <hr/>
-                <form>
+        <FullContainer> 
+            <FormContainer>
+                <FormHeader>{isLoginMode ? 'Login' : 'Registrar'}</FormHeader>
+                <Line />
+                <FormContent onSubmit={submitForm}>
                     {!isLoginMode &&
-                        <InputText label="Nome" name="name" value={state.name} error={inputError.name} errorMessage={errorMessages.name} onChange={inputHandler}/>
+                        <InputText label="Nome" name="name" placeholder="Insira o seu nome" errorMessage={[]} validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(6)]}/>
                     }
-                    <InputText label="E-mail" name="email" value={state.email} error={inputError.email} errorMessage={errorMessages.email} onChange={inputHandler}/>
-                    <InputText label="Senha" name="password" value={state.password} error={inputError.password} type="password" errorMessage={errorMessages.password} onChange={inputHandler}/>
+                    <InputText label="E-mail" name="email" placeholder="Insira o seu e-mail" errorMessage={[]} validators={[VALIDATOR_EMAIL()]}/>
+                    <InputText label="Senha" name="password" placeholder="Digite a sua senha" errorMessage={[]} type="password" validators={[VALIDATOR_MINLENGTH(6)]} changePassword={setPasswordValue}/>
                     {!isLoginMode &&
-                        <InputText label="Confirmar Senha" name="confirmPassword" value={state.confirmPassword} error={inputError.confirmPassword} errorMessage={errorMessages.confirmPassword} onChange={inputHandler}/> 
+                        <InputText label="Confirmar Senha" placeholder="Confirme a senha digitada" type="password" name="confirmPassword" errorMessage={[]} validators={[VALIDATOR_MINLENGTH(6), VALIDATOR_SAMEVALUE(passwordValue)]}/> 
                     }
-                    <Button type="submit">{isLoginMode ? 'Entrar' : 'Registrar'}</Button>
+                    <div style={{marginTop: '20px', display:'flex', justifyContent: 'center', alignItems: 'center'}} >
+                        <Button varian="contained" color="primary" type="submit" size="large">{isLoginMode ? 'Entrar' : 'Registrar'}</Button>
+                    </div>
                     {isLoginMode ?
-                        <p>Ainda não é cadastrado? Cadastre-se <span>aqui</span></p> :
-                        <p>Já possui cadastro? Faça o <span>login</span></p>
+                        <p>Ainda não é cadastrado? Cadastre-se <span onClick={toggleLoginMode}>aqui</span></p> :
+                        <p>Já possui cadastro? Faça o <span onClick={toggleLoginMode}>login</span></p>
                     }
-                </form>
-            </div>
-        </>
+                </FormContent>
+            </FormContainer>
+        </FullContainer>
     );
 };
 

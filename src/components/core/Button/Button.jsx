@@ -25,7 +25,7 @@ Button.propTypes = {
     /**
     * Color of the button. Choose among seven different options of pass a hex color .
     */
-    color: PropTypes.oneOfType(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', PropTypes.string]),
+    color: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', PropTypes.string]),
     /**
     * Variant of the button. Choose among three variants.
     */
@@ -45,12 +45,7 @@ Button.propTypes = {
     /**
     * Accepts a simple text, a function, an object or a javascript node.
     */
-    children: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.node,
-        PropTypes.func,
-    ]).isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 Button.defaultProps = {
@@ -62,4 +57,3 @@ Button.defaultProps = {
 };
 
 export default Button;
-

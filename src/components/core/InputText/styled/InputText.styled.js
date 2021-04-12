@@ -23,13 +23,13 @@ const StyledInputText = styled.div`
         display: block;
         width: 100%;
         border: none;
-        border-bottom: 1px solid ${theme.inputTextBorder};
+        border-bottom: 2px solid ${props => (props.errorMessage.length !== 0 && props.blur) ? theme.danger : theme.inputTextBorder};
         background-color: ${(props) => props.notTransparent ? theme.white : 'transparent' };
 
         &:focus {
             outline: none;
             +.labelText {
-                color: ${(props) => props.error ? theme.danger : theme.primary};
+                color: ${(props) => (props.errorMessage.length !== 0 && props.blur) ? theme.danger : theme.primary};
             };
             ~.bar:before, ~.bar:after {
                 width: 50%;
@@ -52,7 +52,7 @@ const StyledInputText = styled.div`
         top: 4px;
         left: 0px;
         font-size: 0.85rem;
-        color: ${theme.inputLabelColor};
+        color: ${(props) => (props.errorMessage.length !== 0 && props.blur) ? theme.danger : theme.inputLabelColor};
         font-weight: bold;
     };
 
@@ -75,7 +75,7 @@ const StyledInputText = styled.div`
         width: 0;
         bottom: 1px;
         position: absolute;
-        background: ${(props) => props.error ? theme.danger : theme.primary};
+        background: ${(props) => (props.errorMessage.length !== 0 && props.blur) ? theme.danger : theme.primary};
         transition: 0.2s ease all;
         -moz-transition: 0.2s ease all;
         -webkit-transition: 0.2s ease all;

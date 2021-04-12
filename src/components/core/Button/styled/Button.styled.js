@@ -148,7 +148,7 @@ const StyledButton = styled.button`
     align-items: center;
 
     @media ${device.xs} {
-        min-width: 120px;
+        min-width: 100px;
     };
 
     ${props => css`

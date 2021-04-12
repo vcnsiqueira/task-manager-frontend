@@ -1,40 +1,107 @@
-import React from 'react';
+import React, { useReducer} from 'react';
 import PropTypes from 'prop-types';
 
 import StyledInputText from './styled/InputText.styled';
+import { validate } from '../../../utils/validation';
 
-const InputText = ({ label, name, error, errorMessage, disabled, type, value, onChange }) => {
+const inputReducer = (state, action) => {
+    switch(action.type) {
+        case 'change':
+            return {
+                ...state,
+                value: action.val,
+                isValid: validate(action.val, action.validators).isValid,
+                message: validate(action.val, action.validators).message,
+            };
+        case 'touch':
+            return {
+                ...state,
+                isTouched: true,
+                isValid: validate(action.val, action.validators).isValid,
+                message: validate(action.val, action.validators).message,
+            };
+        case 'click':
+            return {
+                ...state,
+                isTouched: false,
+            }
+        default:
+            return state;
+    }
+}
+
+const InputText = ({ label, name, initialValue, initialIsValid, errorMessage, validators, disabled, type, placeholder, notTransparent, changePassword }) => {
+
+    const [inputState, dispatch] = useReducer(inputReducer, {
+        value: initialValue || '',
+        isValid: initialIsValid || false,
+        isTouched: false,
+        message: errorMessage || [],
+    })
+
+    const { value, isValid } = inputState;
+
+    const changeHandler = event => {
+        dispatch({
+            type: 'change',
+            val: event.target.value,
+            validators: validators,
+        });
+        if (event.target.name === 'password' && changePassword) { // this conditional is used to pass the password value to parent component in order to validate the confirm password if necessary
+            changePassword(event.target.value);
+        };
+    };
+
+    const touchHandler = event => {
+        dispatch({
+            type: 'touch',
+            val: event.target.value,
+            validators: validators,
+        });
+    };
+
+    const clickHandler = () => {
+        dispatch({
+            type: 'click',
+        });
+    };
+
     return (
-        <StyledInputText error={error}>
-            <input className="inputText" name={name} id={`inputTextLine${label}`} disabled={disabled} type={type} value={value} onChange={onChange} />
+        <StyledInputText notTransparent={notTransparent} errorMessage={inputState.message} blur={inputState.isTouched}>
+            <input className="inputText" name={name} id={`inputTextLine${label}`} disabled={disabled} type={type} value={value} placeholder={placeholder} onChange={changeHandler} onBlur={touchHandler} onClick={clickHandler} />
             <label className="labelText">
                 {label}
             </label>
             <span className="highlight" />
             <span className="bar"/>
-            { error && <span className="errorMessage">{errorMessage}</span>}
+            { !isValid && inputState.isTouched && (
+                inputState.message.map((mes, index) => <span key={index} className="errorMessage">{mes} </span>)
+            )}
         </StyledInputText>
     );
 };
 
 InputText.propTypes = {
     label: PropTypes.string,
-    value: PropTypes.string,
-    error: PropTypes.bool,
-    errorMessage: PropTypes.string,
+    name: PropTypes.string,
+    initialValue: PropTypes.string,
+    initialIsValid: PropTypes.bool,
+    errorMessage: PropTypes.array,
+    validators: PropTypes.array,
     disabled: PropTypes.bool,
     type: PropTypes.string,
+    placeholder: PropTypes.string,
     notTransparent: PropTypes.bool,
-    onChange: PropTypes.func,
+    onInput: PropTypes.func,
+    changePassword: PropTypes.func,
 };
 
 InputText.defaultProps = {
-    error: false,
-    value: '',
-    errorMessage: 'Existe um erro',
     disabled: false,
+    initialValue: '',
+    initialIsValid: true,
     type: 'text',
-    notTransparent: true,
+    notTransparent: false,
 };
 
 export default InputText;
