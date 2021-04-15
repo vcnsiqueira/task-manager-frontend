@@ -13,7 +13,7 @@ const FullContainer = styled.div`
 
 const FormContainer = styled.div`
     width: 20vw;
-    background-color: #F5F5F588;
+    background-color: #FFF;
     border-radius: 20px;
     padding: 10px 20px;
     

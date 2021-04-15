@@ -1,4 +1,4 @@
-import React, { useReducer} from 'react';
+import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 
 import StyledInputText from './styled/InputText.styled';
@@ -30,16 +30,20 @@ const inputReducer = (state, action) => {
     }
 }
 
-const InputText = ({ label, name, initialValue, initialIsValid, errorMessage, validators, disabled, type, placeholder, notTransparent, changePassword }) => {
+const InputText = ({ label, name, initialValue, initialIsValid, errorMessage, validators, disabled, type, placeholder, notTransparent, changePassword, onInput }) => {
 
     const [inputState, dispatch] = useReducer(inputReducer, {
         value: initialValue || '',
         isValid: initialIsValid || false,
         isTouched: false,
         message: errorMessage || [],
-    })
+    });
 
     const { value, isValid } = inputState;
+
+    useEffect(() => {
+        onInput(name, value, isValid);
+    }, [name, value, isValid, onInput]);
 
     const changeHandler = event => {
         dispatch({
