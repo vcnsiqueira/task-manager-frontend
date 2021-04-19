@@ -13,13 +13,9 @@ const FullContainer = styled.div`
 
 const FormContainer = styled.div`
     width: 20vw;
-    background-color: #FFF;
+    background-color: #FFFFFF88;
     border-radius: 20px;
     padding: 10px 20px;
-    
-    hr {
-        color: #000000;
-    }
 
     &:hover {
         box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.25),

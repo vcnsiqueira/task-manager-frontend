@@ -71,6 +71,7 @@ const Login = () => {
                             errorMessage={[]} 
                             validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(6)]}
                             onInput={inputHandler}
+                            notTransparent={false}
                         />
                     }
                     <InputText 
@@ -82,6 +83,7 @@ const Login = () => {
                         errorMessage={[]} 
                         validators={[VALIDATOR_EMAIL()]}
                         onInput={inputHandler}
+                        notTransparent={false}
                     />
                     <InputText 
                         label="Senha" 
@@ -94,6 +96,7 @@ const Login = () => {
                         validators={[VALIDATOR_MINLENGTH(6)]}
                         changePassword={setPasswordValue}
                         onInput={inputHandler}
+                        notTransparent={false}
                     />
                     {!isLoginMode &&
                         <InputText 
@@ -104,10 +107,11 @@ const Login = () => {
                             errorMessage={[]}
                             validators={[VALIDATOR_MINLENGTH(6), VALIDATOR_SAMEVALUE(passwordValue)]}
                             onInput={inputHandler}
+                            notTransparent={false}
                         /> 
                     }
                     <div style={{marginTop: '20px', display:'flex', justifyContent: 'center', alignItems: 'center'}} >
-                        <Button varian="contained" disabled={!formState.isValid} color="primary" type="submit" size="large">{isLoginMode ? 'Entrar' : 'Registrar'}</Button>
+                        <Button varian="contained" color="primary" disabled={!formState.isValid} type="submit" size="large">{isLoginMode ? 'Entrar' : 'Registrar'}</Button>
                     </div>
                     {isLoginMode ?
                         <p>Ainda não é cadastrado? Cadastre-se <span onClick={toggleLoginMode}>aqui</span></p> :

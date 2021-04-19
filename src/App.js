@@ -6,6 +6,7 @@ import { AuthContext } from './context/auth-context';
 
 import Login from './views/Login/Login';
 import Boards from './views/Boards/Boards';
+import Navigation from './components/Navigation';
 
 const App = () => {
 
@@ -23,12 +24,15 @@ const App = () => {
 
   if (isLoggedIn) {
     routes = (
-      <Switch>
-        <Route path="/u1/boards" exact>
-          <Boards />
-        </Route>
-        <Redirect to="/u1/boards"/>
-      </Switch>
+      <>
+        <Navigation />
+        <Switch>
+          <Route path="/u1/boards" exact>
+            <Boards />
+          </Route>
+          <Redirect to="/u1/boards"/>
+        </Switch>
+      </>
     );
   } else {
     routes = (
