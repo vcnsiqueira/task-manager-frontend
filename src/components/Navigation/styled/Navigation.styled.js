@@ -18,7 +18,6 @@ export const NavigationContainer = styled.div`
 
 export const NavigationLeftSide = styled.div`
     display: flex;
-    flex: 1 1 0px;
     gap: 15px;
     justify-content: flex-start;
     align-items: center;
@@ -39,7 +38,6 @@ export const NavigationLeftSide = styled.div`
 `;
 
 export const Brand = styled.div`
-    flex: 1 1 0px;
 
     h1 {
         color: ${theme.white};
@@ -56,7 +54,6 @@ export const Brand = styled.div`
 
 export const NavigationRightSide = styled.div`
     display: flex;
-    flex: 1 1 0px;
     gap: 15px;
     justify-content: flex-end;
     align-items: center

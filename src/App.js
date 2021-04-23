@@ -28,7 +28,7 @@ const App = () => {
         <Navigation />
         <Switch>
           <Route path="/u1/boards" exact>
-            <Boards />
+            <Boards username='Vinícius' />
           </Route>
           <Redirect to="/u1/boards"/>
         </Switch>

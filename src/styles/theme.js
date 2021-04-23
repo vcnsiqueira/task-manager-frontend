@@ -3,7 +3,7 @@ const theme = {
     secondary: '#EF8D32',
     success: '#4CAF50',
     danger: '#BA000D',
-    warning: '#FFd54F',
+    warning: '#FFD54F',
     info: '#0097A7',
     dark: '#212121',
     white: '#FFFFFF',

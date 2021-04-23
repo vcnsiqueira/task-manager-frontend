@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import theme from '../../styles/theme';
 
@@ -8,8 +8,10 @@ import { StyledBoardCard, BoardTitle, BoardContent, BoardFooter, BoardStar } fro
 /**
 * The BoardCard is the component that represents a Board related where the user will create his tasks
 */
-const BoardCard = ({ title, color, image, bookmark, dateOfCreation, numberOfTasks, toggleBookmark, openBoard }) => {
+const BoardCard = ({ title, color, image, bookmark, dateOfCreation, numberOfTasks, openBoard }) => {
     
+    const [bookmarkedStar, setBookmarkedStar] = useState(bookmark);
+
     const tasks = numberOfTasks => {
         if (numberOfTasks === 0) {
             return <p>Nenhum tarefa</p>
@@ -17,7 +19,11 @@ const BoardCard = ({ title, color, image, bookmark, dateOfCreation, numberOfTask
             return <p>1 tarefa</p>
         }
         return <p>{numberOfTasks} tarefas</p>
-    }
+    };
+
+    const toggleBookmark = (prev) => {
+        setBookmarkedStar(!prev);
+    };
     
     return (
         <StyledBoardCard color={color} onClick={openBoard}>
@@ -25,13 +31,13 @@ const BoardCard = ({ title, color, image, bookmark, dateOfCreation, numberOfTask
                 {title}
             </BoardTitle>
             <BoardContent>
-                <p>
+                <span>
                     {tasks(numberOfTasks)}
-                </p>
+                </span>
             </BoardContent>
             <BoardFooter>
-                <BoardStar onClick={toggleBookmark}>
-                    {bookmark ? <StarContained color={theme.warning} width="20px" heigth="20px"/> : <StarOutlined color={theme.warning} width="20px" heigth="20px"/>}
+                <BoardStar onClick={() => toggleBookmark(bookmarkedStar)}>
+                    {bookmarkedStar ? <StarContained color='#FFEA00' width="20px" heigth="20px"/> : <StarOutlined color='#FFEA00' width="20px" heigth="20px"/>}
                 </BoardStar>
                 <span>{dateOfCreation}</span>
             </BoardFooter>

@@ -16,10 +16,12 @@ const getColor = (color) => {
 
 export const StyledBoardCard = styled.div`
     display: block;
-    background-color: ${props => getColor(props.color) + '80'};
+    background-color: ${props => getColor(props.color) + '77'};
+    border: 1px solid ${theme.dark};
     border-radius: 10px;
     width:  250px;
     font-weight: bold;
+    cursor: pointer;
 
     &:hover {
         box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.25),
@@ -38,14 +40,14 @@ export const BoardTitle = styled.div`
 export const BoardContent = styled.div`
     text-align: center;
     padding: 15px;
-    p {
-        color: ${theme.white};
+    span {
+        color: ${theme.dark};
     };
 `;
 
 export const BoardFooter = styled.div`
     text-align: right;
-    color: ${theme.white};
+    color: ${theme.dark};
     padding: 10px 15px;
     position: relative;
 `;

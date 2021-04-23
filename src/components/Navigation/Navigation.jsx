@@ -7,7 +7,7 @@ import SideDrawer from '../core/SideDrawer';
 import Avatar from '../core/Avatar';
 import { Add, Hamburger } from '../icons';
 
-import { NavigationContainer, Brand, NavigationLeftSide } from './styled/Navigation.styled';
+import { NavigationContainer, Brand, NavigationLeftSide, NavigationRightSide } from './styled/Navigation.styled';
 
 const Navigation = () => {
 
@@ -34,17 +34,17 @@ const Navigation = () => {
             <NavigationContainer>
                 <NavigationLeftSide>
                     <span onClick={openDrawer}><Hamburger width={20} color='#CCCCCC'/></span>
-                    <Button color="warning" size="medium" variant="pattern" onClick={openDrawer}>Quadros</Button>
+                    <Button color="warning" size="large" variant="contained" onClick={openDrawer}>Quadros</Button>
                 </NavigationLeftSide>
                 <Brand>
                     <h1>Task Manager</h1>
                 </Brand>
-                <div >
-                    <IconButton variant="pattern" color="warning">
+                <NavigationRightSide>
+                    <IconButton variant="pattern" color="secondary">
                         <Add />
                     </IconButton>
                     <Avatar size='medium'/>
-                </div>
+                </NavigationRightSide>
             </NavigationContainer>
         </>
     );
