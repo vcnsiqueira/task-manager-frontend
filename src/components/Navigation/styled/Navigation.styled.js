@@ -9,7 +9,7 @@ export const NavigationContainer = styled.div`
     padding: 10px 3rem;
     justify-content: space-between;
     align-items: center;
-    background: ${theme.primary};
+    background: ${theme.grey};
 
     @media ${device.xs} {
         padding: 10px 2rem;
@@ -40,7 +40,7 @@ export const NavigationLeftSide = styled.div`
 export const Brand = styled.div`
 
     h1 {
-        color: ${theme.white};
+        color: ${theme.primary};
         font-size: 24px;
         margin: 0;
     }

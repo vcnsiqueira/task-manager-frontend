@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Avatar from '../../components/core/Avatar';
-import BoardCard from '../../components/BoardCard';
+import BoardsList from './BoardsList';
+import ToolbarBoards from './ToolbarBoards';
 
 const boards = [{
     id: '1',
@@ -48,18 +48,8 @@ const Boards = ({ username }) => {
 
     return (
         <>
-            <div style={{margin: '2rem 3rem', display: 'flex', gap: '25px', justifyContent: 'flex-start', alignItems: 'center'}}>
-                <Avatar name={username} size="extralarge"/>
-                <div style={{display: 'flex', flexFlow: 'column wrap', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
-                    <h1 style={{color:'#28527A', margin: '0px', fontSize: '30px'}}>Olá {username}!</h1>
-                    <h3 style={{margin: 'px', color: '#808080', fontSize: '16px'}}>Quantidade de quadros: <span style={{color: '#F0A500'}}>{boards.length}</span></h3>
-                </div>
-            </div>
-            <div style={{margin: '2rem 5%', display: 'flex', gap: '30px', flexFlow: 'row wrap', justifyContent: 'flex-start', alignItems: 'center'}}>
-                {boards.map((board) => (
-                    <BoardCard key={board.id} title={board.title} color={board.color} numberOfTasks={board.tasks} dateOfCreation={board.date} bookmark={board.bookmarked}/>
-                ))}
-            </div>
+            <ToolbarBoards user={username} boards={boards}/>
+            <BoardsList boards={boards} />
         </>
     );
 };

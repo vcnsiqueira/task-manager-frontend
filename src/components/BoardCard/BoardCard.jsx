@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import theme from '../../styles/theme';
 
-import { StarContained, StarOutlined } from '../icons';
+import { StarContained, StarOutlined, VerticalPoints } from '../icons';
 import { StyledBoardCard, BoardTitle, BoardContent, BoardFooter, BoardStar } from './styled/BoardCard.styled';
+import IconButton from '../core/IconButton';
+import theme from '../../styles/theme';
 
 /**
 * The BoardCard is the component that represents a Board related where the user will create his tasks
@@ -29,6 +30,9 @@ const BoardCard = ({ title, color, image, bookmark, dateOfCreation, numberOfTask
         <StyledBoardCard color={color} onClick={openBoard}>
             <BoardTitle color={color}>
                 {title}
+                <span>
+                    <IconButton variant="pattern" color={theme.white} size="medium"><VerticalPoints/></IconButton>
+                </span>
             </BoardTitle>
             <BoardContent>
                 <span>

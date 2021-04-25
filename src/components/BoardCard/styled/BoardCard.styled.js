@@ -35,6 +35,13 @@ export const BoardTitle = styled.div`
     color: ${theme.white};
     padding: 10px 0;    
     text-align: center;
+    position: relative;
+
+    span {
+        position: absolute;
+        right: 5px;
+        top: 2px;
+    }
 `;
 
 export const BoardContent = styled.div`

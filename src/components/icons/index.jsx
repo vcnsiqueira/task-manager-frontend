@@ -8,4 +8,5 @@ export { default as Settings } from './Settings';
 export { default as StarContained } from './StarContained';
 export { default as StarOutlined } from './StarOutlined';
 export { default as Users } from './Users';
+export { default as VerticalPoints } from './VerticalPoints';
 export { default as Warning } from './Warning';

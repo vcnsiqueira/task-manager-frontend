@@ -9,7 +9,7 @@ const theme = {
     white: '#FFFFFF',
     black: '#000000',
     lightgrey: '#F5F5F5',
-    grey: '#CCCCCC',
+    grey: '#C8C8C8',
     disabled: '#D2D2D2',
     inputTextBorder: '#757575',
     inputLabelColor: '#696969',
