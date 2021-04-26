@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import BoardsList from './BoardsList';
 import ToolbarBoards from './ToolbarBoards';
@@ -46,10 +46,12 @@ const boards = [{
 
 const Boards = ({ username }) => {
 
+    const [filteredBoards, setFilteredBoards] = useState(boards);
+
     return (
         <>
-            <ToolbarBoards user={username} boards={boards}/>
-            <BoardsList boards={boards} />
+            <ToolbarBoards user={username} boards={boards} handleBoards={setFilteredBoards}/>
+            <BoardsList boards={filteredBoards} />
         </>
     );
 };

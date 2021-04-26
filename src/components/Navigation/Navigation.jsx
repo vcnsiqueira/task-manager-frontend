@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import theme from '../../styles/theme';
 
 import Button from '../core/Button';
 import Backdrop from '../core/Backdrop';
@@ -32,7 +33,7 @@ const Navigation = () => {
             )}
             <NavigationContainer>
                 <NavigationLeftSide>
-                    <span onClick={openDrawer}><Hamburger width={20} color='#CCCCCC'/></span>
+                    <span onClick={openDrawer}><Hamburger width={20} color={theme.primary}/></span>
                     <Button color="secondary" size="large" variant="contained" onClick={openDrawer}>Quadros</Button>
                 </NavigationLeftSide>
                 <Brand>
