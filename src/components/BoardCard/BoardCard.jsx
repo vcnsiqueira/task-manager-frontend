@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { StarContained, StarOutlined, VerticalPoints } from '../icons';
 import { StyledBoardCard, BoardTitle, BoardContent, BoardFooter, BoardStar } from './styled/BoardCard.styled';
 import IconButton from '../core/IconButton';
+import Tooltip from '../core/Tooltip';
 import theme from '../../styles/theme';
 
 /**
@@ -31,7 +32,9 @@ const BoardCard = ({ title, color, image, bookmark, dateOfCreation, numberOfTask
             <BoardTitle color={color}>
                 {title}
                 <span>
-                    <IconButton variant="pattern" color={theme.white} size="medium"><VerticalPoints/></IconButton>
+                    <Tooltip tooltip="Opções" position="top" width="80px">
+                        <IconButton variant="pattern" color={theme.white} size="medium"><VerticalPoints/></IconButton>
+                    </Tooltip>
                 </span>
             </BoardTitle>
             <BoardContent>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Avatar from '../../components/core/Avatar';
 import IconButton from '../../components/core/IconButton';
 import Search from '../../components/core/Search';
+import Tooltip from '../../components/core/Tooltip';
 import { Add } from '../../components/icons';
 
 import { ToolbarBoardsStyled, ToolbarMainInformation, ToolbarUserInformation, ToolbarActions } from './styled/ToolbarBoards.styled';
@@ -45,7 +46,9 @@ const ToolbarBoards = ({ user, boards, handleBoards }) => {
             </ToolbarMainInformation>
             <ToolbarActions>
                 <Search searchItem={searchBoard} onChange={setSearchBoard}/>
-                <IconButton variant="contained" color="primary" shape="rounded"><Add /></IconButton>
+                <Tooltip tooltip="Adicionar quadro" position="bottom-end">
+                    <IconButton variant="contained" color="primary" shape="rounded"><Add /></IconButton>
+                </Tooltip>
             </ToolbarActions>
         </ToolbarBoardsStyled>
     );

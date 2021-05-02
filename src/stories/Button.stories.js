@@ -31,7 +31,7 @@ export default {
 const Template = (args) => {
   return (
     <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-      <Button style={{marginRight: '10px'}}{...args} />
+      <Button style={{marginRight: '10px'}} {...args} />
     </div>
   );
 };
