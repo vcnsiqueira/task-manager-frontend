@@ -5,10 +5,15 @@ import { device }  from '../../../components/core/breakpoints';
 export const ToolbarBoardsStyled = styled.div`
     margin: 2rem 3rem;
     display: flex;
+    position: sticky;
     justify-content: space-between;
     align-items: center;
 
     @media ${device.xs} {
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 20px;
         margin: 10px 2rem;
     }
 `;

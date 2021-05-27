@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import theme from '../../styles/theme';
 
 import Button from '../core/Button';
-import Backdrop from '../core/Backdrop';
 import SideDrawer from '../core/SideDrawer';
 import Avatar from '../core/Avatar';
 import { Hamburger } from '../icons';

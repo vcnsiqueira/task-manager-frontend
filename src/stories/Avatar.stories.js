@@ -15,7 +15,7 @@ export default {
       src: {
           control: { type: "text" }
       },
-    },
+    },size: "profile",
   };
 
 const Template = (args) => {

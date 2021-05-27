@@ -46,7 +46,7 @@ const ToolbarBoards = ({ user, boards, handleBoards }) => {
             </ToolbarMainInformation>
             <ToolbarActions>
                 <Search searchItem={searchBoard} onChange={setSearchBoard}/>
-                <Tooltip tooltip="Adicionar quadro" position="bottom-end">
+                <Tooltip tooltip="Novo quadro" position="top-end">
                     <IconButton variant="contained" color="primary" shape="rounded"><Add /></IconButton>
                 </Tooltip>
             </ToolbarActions>

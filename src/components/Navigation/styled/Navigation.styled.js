@@ -4,6 +4,8 @@ import { device } from '../../core/breakpoints'
 import theme from '../../../styles/theme';
 
 export const NavigationContainer = styled.div`
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
     padding: 10px 3rem;
