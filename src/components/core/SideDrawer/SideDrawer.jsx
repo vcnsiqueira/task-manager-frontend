@@ -1,24 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import StyledSideDrawer from './styled/SideDrawer.styled';
+import Backdrop from '../Backdrop';
 import { Close } from '../../icons';
 
-const SideDrawer = ({ children, onClick}) => {
-    return ReactDOM.createPortal(
-        <StyledSideDrawer>
-            <span className="close" onClick={onClick}>
-                <Close width={30}/>
-            </span>
-            {children}
-        </StyledSideDrawer>, document.getElementById('sidedrawer-hook')
+const SideDrawer = ({ children, closeDrawer}) => {
+     return (
+        <Backdrop>
+            <StyledSideDrawer>
+                <span className="close" onClick={closeDrawer}>
+                    <Close width={30}/>
+                </span>
+                {children}
+            </StyledSideDrawer>
+        </Backdrop>
     );
 };
 
 SideDrawer.propTypes = {
     children: PropTypes.node,
-    onClick: PropTypes.func,
+    closeDrawer: PropTypes.func,
 };
 
 export default SideDrawer;

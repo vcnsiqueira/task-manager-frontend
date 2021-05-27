@@ -17,7 +17,7 @@ const getColor = (color) => {
 export const StyledBoardCard = styled.div`
     display: block;
     background-color: ${props => getColor(props.color) + '77'};
-    border: 1px solid ${theme.dark};
+    //border: 1px solid ${theme.dark};
     border-radius: 10px;
     width:  200px;
     font-size: 14px;

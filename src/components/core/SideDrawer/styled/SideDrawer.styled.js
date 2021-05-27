@@ -4,7 +4,7 @@ const StyledSideDrawer = styled.aside`
     position: relative;
     left: 0;
     top: 0;
-    z-index: 100;
+    //z-index: 100;
     height: 100vh;
     width: 30%;
     min-width: 350px;

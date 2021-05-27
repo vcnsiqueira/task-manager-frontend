@@ -25,8 +25,7 @@ const Navigation = () => {
         <>
             {showDrawer && (
                 <>
-                    <Backdrop onClick={closeDrawer}/>
-                    <SideDrawer onClick={closeDrawer}>
+                    <SideDrawer closeDrawer={closeDrawer}>
                         Teste
                     </SideDrawer>
                 </>

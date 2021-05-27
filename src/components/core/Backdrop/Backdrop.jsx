@@ -4,14 +4,17 @@ import PropTypes from 'prop-types';
 
 import StyledBackdrop from './styled/Backdrop.styled';
 
-const Backdrop = ({ onClick }) => {
+const Backdrop = ({ onClick, children }) => {
     return ReactDOM.createPortal(
-        <StyledBackdrop onClick={onClick}/>, document.getElementById('backdrop-hook')
+        <StyledBackdrop onClick={onClick}>
+            {children}    
+        </StyledBackdrop>, document.getElementById('backdrop-hook')
     );
 };
 
 Backdrop.propTypes = {
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    children: PropTypes.node,
 };
 
 export default Backdrop;
