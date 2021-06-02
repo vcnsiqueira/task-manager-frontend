@@ -9,13 +9,17 @@ export const ToolbarBoardsStyled = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    @media ${device.xs} {
+    @media ${device.ms} {
         flex-flow: column nowrap;
         justify-content: flex-start;
         align-items: flex-start;
         gap: 20px;
+        margin: 10px 3rem;
+    };
+
+    @media ${device.xs} {
         margin: 10px 2rem;
-    }
+    };
 `;
 
 export const ToolbarMainInformation = styled.div`
@@ -24,7 +28,7 @@ export const ToolbarMainInformation = styled.div`
     justify-content: flex-start;
     align-items: center;
 
-    @media ${device.xs} {
+    @media ${device.ms} {
         gap: 10px;
     }
 `;

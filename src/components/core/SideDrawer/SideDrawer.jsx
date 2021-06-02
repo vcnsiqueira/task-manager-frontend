@@ -9,8 +9,8 @@ const SideDrawer = ({ children, closeDrawer}) => {
      return (
         <Backdrop>
             <StyledSideDrawer>
-                <span className="close" onClick={closeDrawer}>
-                    <Close width={30}/>
+                <span onClick={closeDrawer}>
+                    <Close width={30} />
                 </span>
                 {children}
             </StyledSideDrawer>
