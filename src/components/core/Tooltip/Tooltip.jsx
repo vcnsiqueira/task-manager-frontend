@@ -23,7 +23,7 @@ Tooltip.propTypes = {
     /**
     * The position of the tooltip related to the element. You can choose among 9 different positions 
     */
-    position: PropTypes.oneOf(['top-start', 'top', 'top-right', 'left-start', 'left', 'left-end', 'bottom-start', 'bottom', 'bottom-end', 'right-start', 'right', 'right-end']),
+    position: PropTypes.oneOf(['top-start', 'top', 'top-end', 'left-start', 'left', 'left-end', 'bottom-start', 'bottom', 'bottom-end', 'right-start', 'right', 'right-end']),
     /**
     * The element to be enclosed by the tooltip 
     */

@@ -59,7 +59,7 @@ const ToolbarBoards = ({ user, boards, handleBoards }) => {
                 </ToolbarMainInformation>
                 <ToolbarActions>
                     <Search searchItem={searchBoard} onChange={setSearchBoard}/>
-                    <Tooltip tooltip="Novo quadro" position="top-right">
+                    <Tooltip tooltip="Novo quadro" position="top-end">
                         <IconButton variant="contained" color="primary" shape="rounded" onClick={openAddBoardModal}><Add /></IconButton>
                     </Tooltip>
                 </ToolbarActions>
