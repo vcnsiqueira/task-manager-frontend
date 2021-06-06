@@ -126,11 +126,16 @@ const boards = [{
 
 const Boards = ({ username }) => {
 
+    const [boardsList, setBoardsList] = useState(boards);
     const [filteredBoards, setFilteredBoards] = useState(boards);
+
+    const addBoard = (newBoard) => {
+        setBoardsList([...boardsList, newBoard]);
+    };
 
     return (
         <>
-            <ToolbarBoards user={username} boards={boards} handleBoards={setFilteredBoards}/>
+            <ToolbarBoards user={username} boards={boardsList} handleFilteredBoards={setFilteredBoards} addBoard={addBoard}/>
             <BoardsList boards={filteredBoards} />
         </>
     );

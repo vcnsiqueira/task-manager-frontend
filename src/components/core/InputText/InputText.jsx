@@ -79,7 +79,7 @@ const InputText = ({ label, name, initialValue, initialIsValid, errorMessage, va
             <span className="highlight" />
             <span className="bar"/>
             { !isValid && inputState.isTouched && (
-                inputState.message.map((mes, index) => <span key={index} className="errorMessage">{mes} </span>)
+                inputState.message.map((mes, index) => <span key={index} style={{display: 'block'}} className="errorMessage">{mes} </span>)
             )}
         </StyledInputText>
     );
