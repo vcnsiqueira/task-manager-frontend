@@ -10,15 +10,17 @@ const ModalOverlay = ({ title, onSubmit, close, children, footer }) => {
 
     const content = (
         <StyledModal>
-            <ModalHeader>
-                <h2>{title}</h2>
-                <span onClick={close}>
-                    <Close width={20} />
-                </span>
-            </ModalHeader>
-            {title &&
-                <hr style={{width: '65%', border: '0.8px solid #C4C4C4'}}/>
-            }
+            {title && (
+                <>
+                    <ModalHeader>
+                        <h2>{title}</h2>
+                        <span onClick={close}>
+                            <Close width={20} />
+                        </span>
+                    </ModalHeader>
+                    <hr style={{margin: '0px 15%', border: '0.8px solid #C4C4C4'}}/>
+                </>
+            )}
             <form onSubmit={onSubmit ? onSubmit : event => event.preventDefault()}>
                 <ModalContent>
                     {children}
@@ -33,6 +35,9 @@ const ModalOverlay = ({ title, onSubmit, close, children, footer }) => {
     return ReactDOM.createPortal(content, document.getElementById('modal-hook'));
 };
 
+/**
+* Modals are floating cards which overlay the primary UI. All content in a simgle modal should be related to completing one single task. Modals are heavy UI elements which obscure the primary user interface - avoid them where possible.
+*/
 const Modal = ({ show, closeModal, ...props }) => {
 
     return (
@@ -48,10 +53,29 @@ const Modal = ({ show, closeModal, ...props }) => {
 };
 
 Modal.propTypes = {
+    /**
+    * A boolean variable that determines if the modal is visible or not.
+    */
     show: PropTypes.bool.isRequired,
+    /**
+    * The title of the modal. Optional.
+    */
+    title: PropTypes.string,
+    /**
+    * A function responsible to close the modal.
+    */
     closeModal : PropTypes.func.isRequired,
+    /**
+    * A function responsible to submit the elements of the modal
+    */
     onSubmit: PropTypes.func,
+    /**
+    * The content of the modal
+    */
     children: PropTypes.node.isRequired,
+    /**
+    * The footer of the element. Generally it is composed by buttons to apply some configuration.
+    */
     footer: PropTypes.node,
 }
 

@@ -14,9 +14,9 @@ export const StyledModal = styled.div`
 
 export const ModalHeader = styled.header`
     h2 {
-        position: relative;
         font-size: 24px;
-        margin: 0.8rem 3rem;
+        text-align: center;
+        margin: 0.8rem auto;
         color: ${theme.primary};
     }
 

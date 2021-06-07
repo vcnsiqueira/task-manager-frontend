@@ -50,92 +50,22 @@ const boards = [{
     tasks: 25,
     date: '22/04/2021',
     bookmarked: true,
-},
-{
-    id: '7',
-    title: 'Board 2',
-    color: 'secondary',
-    tasks: 30,
-    date: '20/04/2021',
-    bookmarked: false,
-},
-{
-    id: '8',
-    title: 'Board 3',
-    color: 'danger',
-    tasks: 20,
-    date: '18/04/2021',
-    bookmarked: true,
-},
-{
-    id: '9',
-    title: 'Board 4',
-    color: 'success',
-    tasks: 40,
-    date: '10/02/2021',
-    bookmarked: false,
-},
-{
-    id: '10',
-    title: 'Board 5',
-    color: 'dark',
-    tasks: 50,
-    date: '11/01/2021',
-    bookmarked: false,
-},
-{
-    id: '11',
-    title: 'Board 1',
-    color: 'primary',
-    tasks: 25,
-    date: '22/04/2021',
-    bookmarked: true,
-},
-{
-    id: '12',
-    title: 'Board 2',
-    color: 'secondary',
-    tasks: 30,
-    date: '20/04/2021',
-    bookmarked: false,
-},
-{
-    id: '13',
-    title: 'Board 3',
-    color: 'danger',
-    tasks: 20,
-    date: '18/04/2021',
-    bookmarked: true,
-},
-{
-    id: '14',
-    title: 'Board 4',
-    color: 'success',
-    tasks: 40,
-    date: '10/02/2021',
-    bookmarked: false,
-},
-{
-    id: '15',
-    title: 'Board 5',
-    color: 'dark',
-    tasks: 50,
-    date: '11/01/2021',
-    bookmarked: false,
 }];
 
 const Boards = ({ username }) => {
 
     const [boardsList, setBoardsList] = useState(boards);
     const [filteredBoards, setFilteredBoards] = useState(boards);
-
+    
+    // Function that adds a new board to the boardsList
     const addBoard = (newBoard) => {
         setBoardsList([...boardsList, newBoard]);
+        setFilteredBoards([...boardsList, newBoard]);
     };
 
     return (
         <>
-            <ToolbarBoards user={username} boards={boardsList} handleFilteredBoards={setFilteredBoards} addBoard={addBoard}/>
+            <ToolbarBoards user={username} boards={boardsList} setBoards={setBoardsList} handleFilteredBoards={setFilteredBoards} addBoard={addBoard}/>
             <BoardsList boards={filteredBoards} />
         </>
     );
