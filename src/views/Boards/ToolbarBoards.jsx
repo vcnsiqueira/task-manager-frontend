@@ -23,7 +23,8 @@ const ToolbarBoards = ({ user, boards, handleFilteredBoards, addBoard }) => {
     const [searchBoard, setSearchBoard] = useState('');
     const [showAddBoardModal, setShowAddBoardModal] = useState(false);
     const [showColorPicker, setShowColorPicker] = useState(false);
-    const [newBoardColor, setNewBoardColor] = useState(theme.primary);
+    const [initialColorPicker, setInitialColorPicker] = useState(theme.primary);
+    const [selectedBoardColor, setSelectedBoardColor] = useState(initialColorPicker);
 
     const [formState, inputHandler] = useForm({
         boardTitle: {
@@ -38,6 +39,7 @@ const ToolbarBoards = ({ user, boards, handleFilteredBoards, addBoard }) => {
 
     const closeAddBoardModal = () => { // Function responsible to close the modal that adds a new Modal
         setShowAddBoardModal(false);
+        setInitialColorPicker(theme.primary);
     };
 
     useEffect(() => { // This effect tells when there is a change in the resolution width of the device
@@ -64,19 +66,29 @@ const ToolbarBoards = ({ user, boards, handleFilteredBoards, addBoard }) => {
         addBoard({
             id: '100',
             title: formState.inputs.boardTitle.value,
-            color: 'primary',
+            color: selectedBoardColor,
             tasks: 0,
-            date: '06/06/2021',
+            date: new Date().toLocaleString('PT-BR'),
             bookmarked: false,
         });
         closeAddBoardModal();
     };
 
-    const toggleColorPicker = () => setShowColorPicker(!showColorPicker)
+    //const toggleColorPicker = () => setShowColorPicker(!showColorPicker);
 
     const handleNewBoardColor = newColor => {
-        setNewBoardColor(newColor.hex);
+        setInitialColorPicker(newColor.hex);
     }
+
+    const cancelColorPicker = () => {
+        setInitialColorPicker(theme.primary);
+    }
+
+    const submitColorPicker = event => {
+        event.preventDefault();
+        setSelectedBoardColor(initialColorPicker);
+        setShowColorPicker(false);
+    };
 
     return (
         <>
@@ -120,22 +132,24 @@ const ToolbarBoards = ({ user, boards, handleFilteredBoards, addBoard }) => {
                             onInput={inputHandler}
                         />
                         <Tooltip tooltip="Cor do quadro" position="top-end">
-                            <div style={{width: '36px', height: '36px', backgroundColor: `${newBoardColor}`, border: '1px solid', borderColor: `${newBoardColor}`, borderRadius: '8px'}} onClick = {toggleColorPicker}/>
+                            <div style={{width: '36px', height: '36px', backgroundColor: `${initialColorPicker}`, border: '1px solid', borderColor: `${initialColorPicker}`, borderRadius: '8px'}} onClick = {() => setShowColorPicker(true)}/>
                         </Tooltip>
                     </div>
                 </Modal>
                 <Modal
                     show={showColorPicker}
-                    closeModal={toggleColorPicker}
+                    closeModal={() => setShowColorPicker(false)}
                     title="Selecione a cor"
+                    backgroundColor="transparent"
+                    onSubmit={submitColorPicker}
                     footer={
                         <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', padding: '10px 0px', gap: '10px'}}>
-                            <Button variant="outlined" color="primary" onClick={toggleColorPicker}>Cancelar</Button>
-                            <Button variant="contained" color="primary" type="submit">Adicionar</Button>
+                            <Button variant="outlined" color="primary" onClick={cancelColorPicker}>Cancelar</Button>
+                            <Button variant="contained" color="primary" type="submit">Selecionar</Button>
                         </div>
                     }
                 >
-                    <ColorPicker />
+                    <ColorPicker onChange={handleNewBoardColor} />
                 </Modal>
             </ToolbarBoardsStyled>
         </>

@@ -58,6 +58,11 @@ export const BoardFooter = styled.div`
     color: ${theme.dark};
     padding: 10px 15px;
     position: relative;
+
+    span {
+        font-size: 10px;
+        color: ${theme.dark};
+    }
 `;
 
 export const BoardStar = styled.div`

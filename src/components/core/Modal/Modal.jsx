@@ -38,13 +38,13 @@ const ModalOverlay = ({ title, onSubmit, close, children, footer }) => {
 /**
 * Modals are floating cards which overlay the primary UI. All content in a simgle modal should be related to completing one single task. Modals are heavy UI elements which obscure the primary user interface - avoid them where possible.
 */
-const Modal = ({ show, closeModal, ...props }) => {
+const Modal = ({ show, closeModal, backgroundColor, ...props }) => {
 
     return (
         <>
             {show &&
                 <>
-                    <Backdrop onClick={closeModal} />
+                    <Backdrop onClick={closeModal} backgroundColor={backgroundColor}/>
                     <ModalOverlay {...props} close={closeModal} />
                 </>
             }
@@ -64,7 +64,11 @@ Modal.propTypes = {
     /**
     * A function responsible to close the modal.
     */
-    closeModal : PropTypes.func.isRequired,
+    closeModal: PropTypes.func.isRequired,
+    /**
+    * The background color of the overlay
+    */
+    backgroundColor: PropTypes.string,
     /**
     * A function responsible to submit the elements of the modal
     */
@@ -77,6 +81,11 @@ Modal.propTypes = {
     * The footer of the element. Generally it is composed by buttons to apply some configuration.
     */
     footer: PropTypes.node,
+}
+
+Modal.defaultProps = {
+    show: false,
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
 }
 
 export default Modal;
