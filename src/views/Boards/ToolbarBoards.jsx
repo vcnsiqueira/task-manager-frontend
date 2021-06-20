@@ -26,7 +26,7 @@ const ToolbarBoards = ({ user, boards, handleFilteredBoards, addBoard }) => {
     const [initialColorPicker, setInitialColorPicker] = useState(theme.primary);
     const [selectedBoardColor, setSelectedBoardColor] = useState(initialColorPicker);
 
-    const [formState, inputHandler] = useForm({
+    const [formState, inputHandler, setFormData] = useForm({
         boardTitle: {
             value: '',
             isValid: false,
@@ -40,6 +40,12 @@ const ToolbarBoards = ({ user, boards, handleFilteredBoards, addBoard }) => {
     const closeAddBoardModal = () => { // Function responsible to close the modal that adds a new Modal
         setShowAddBoardModal(false);
         setInitialColorPicker(theme.primary);
+        setFormData({
+            boardTitle: {
+                value: '',
+                isValid: false
+            }
+        }, false);
     };
 
     useEffect(() => { // This effect tells when there is a change in the resolution width of the device
@@ -71,6 +77,12 @@ const ToolbarBoards = ({ user, boards, handleFilteredBoards, addBoard }) => {
             date: new Date().toLocaleString('PT-BR'),
             bookmarked: false,
         });
+        setFormData({
+            boardTitle: {
+                value: '',
+                isValid: false
+            }
+        }, false);
         closeAddBoardModal();
     };
 
