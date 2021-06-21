@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import theme from '../../../styles/theme';
 
 import Modal from '../Modal';
@@ -37,5 +38,14 @@ const Alert = ({ show, closeAlert, overlayColor, type, onSubmit, children, foote
     );
 };
 
+Alert.propTypes = {
+    show: PropTypes.bool,
+    closeAlert: PropTypes.func,
+    overlayColor: PropTypes.string,
+    type: PropTypes.oneOf(["success", "error", "info", "warning"]),
+    onSubmit: PropTypes.func,
+    children: PropTypes.node,
+    footer: PropTypes.node,
+};
 
 export default Alert;

@@ -4,6 +4,7 @@ export { default as Check } from './Check';
 export { default as Close } from './Close';
 export { default as Error } from './Error';
 export { default as Hamburger } from './Hamburger';
+export { default as Info } from './Info';
 export { default as Settings } from './Settings';
 export { default as StarContained } from './StarContained';
 export { default as StarOutlined } from './StarOutlined';
