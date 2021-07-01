@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import BoardsList from './BoardsList';
 import ToolbarBoards from './ToolbarBoards';
+import Snackbar from '../../components/core/Snackbar';
 
 const boards = [{
     id: '1',
@@ -56,7 +57,7 @@ const Boards = ({ username }) => {
 
     const [boardsList, setBoardsList] = useState(boards);
     const [filteredBoards, setFilteredBoards] = useState(boards);
-    
+    const [openToast, setOpenToast] = useState(false);
     // Function that adds a new board to the boardsList
     const addBoard = (newBoard) => {
         setBoardsList([...boardsList, newBoard]);
@@ -67,6 +68,10 @@ const Boards = ({ username }) => {
         <>
             <ToolbarBoards user={username} boards={boardsList} setBoards={setBoardsList} handleFilteredBoards={setFilteredBoards} addBoard={addBoard}/>
             <BoardsList boards={filteredBoards} />
+            <button onClick={() => setOpenToast(true)}>Toast me</button>
+            {openToast && (
+                <Snackbar type="success" position='bottom-left' title="Teste" autoDelete={true} autoDeleteTime={1000} close={() => setOpenToast(false)}>Deu certo!</Snackbar>
+            )}
         </>
     );
 };

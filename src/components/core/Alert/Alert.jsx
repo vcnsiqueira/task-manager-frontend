@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import theme from '../../../styles/theme';
 
 import Modal from '../Modal';
-import { Check, Error, Warning } from '../../icons';
+import { Check, Error, Info, Warning } from '../../icons';
 
 const Alert = ({ show, closeAlert, overlayColor, type, onSubmit, children, footer }) => {
     
@@ -17,6 +17,11 @@ const Alert = ({ show, closeAlert, overlayColor, type, onSubmit, children, foote
         case "error":
             iconAlert = (
                 <Error color={theme.danger} width={100}/>
+            )
+            break;
+        case "info":
+            iconAlert = (
+                <Info color={theme.danger} width={100}/>
             )
             break;
         case "warning":
